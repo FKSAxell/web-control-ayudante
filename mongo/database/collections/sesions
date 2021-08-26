@@ -1,0 +1,301 @@
+[{
+  "_id": {
+    "$oid": "60f8eaa5a26a2b3c948c3f8b"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "60f8dd5ca00a7c3ffc6e24be"
+  },
+  "horaInicio": 8,
+  "minutoInicio": 30,
+  "horaFin": 10,
+  "minutoFin": 30,
+  "dia": 1,
+  "fechaCreacion": {
+    "$date": "2021-07-22T03:48:53.774Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T03:48:53.774Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8eabd05e2b21868ac95f1"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "60f8dd5ca00a7c3ffc6e24be"
+  },
+  "horaInicio": 8,
+  "minutoInicio": 30,
+  "horaFin": 10,
+  "minutoFin": 30,
+  "dia": 2,
+  "fechaCreacion": {
+    "$date": "2021-07-22T03:49:17.194Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T03:49:17.194Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8ebffb4b561577037fe97"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "60f8e822d5bb443bdceb7540"
+  },
+  "horaInicio": 11,
+  "minutoInicio": 30,
+  "horaFin": 13,
+  "minutoFin": 30,
+  "dia": 1,
+  "fechaCreacion": {
+    "$date": "2021-07-22T03:54:39.166Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T03:54:39.166Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8ec1452383c1e08dd9f1d"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "60f8e822d5bb443bdceb7540"
+  },
+  "horaInicio": 11,
+  "minutoInicio": 30,
+  "horaFin": 13,
+  "minutoFin": 30,
+  "dia": 2,
+  "fechaCreacion": {
+    "$date": "2021-07-22T03:55:00.614Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T03:55:00.614Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61097cd64c58a1478021c470"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61097cd54c58a1478021c46f"
+  },
+  "horaInicio": 9,
+  "minutoInicio": 0,
+  "horaFin": 11,
+  "minutoFin": 0,
+  "dia": 1,
+  "fechaCreacion": {
+    "$date": "2021-08-03T17:28:54.095Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T17:28:54.095Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098792259a5d0688cc839e"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098792259a5d0688cc839d"
+  },
+  "horaInicio": 13,
+  "minutoInicio": 0,
+  "horaFin": 14,
+  "minutoFin": 0,
+  "dia": 1,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:14:42.571Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:14:42.571Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098792259a5d0688cc839f"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098792259a5d0688cc839d"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 0,
+  "horaFin": 17,
+  "minutoFin": 0,
+  "dia": 6,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:14:42.717Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:14:42.717Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610989057d7d8222a8f3482d"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "610989057d7d8222a8f3482c"
+  },
+  "horaInicio": 14,
+  "minutoInicio": 0,
+  "horaFin": 16,
+  "minutoFin": 0,
+  "dia": 1,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:20:53.299Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:20:53.299Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610989a970c6d925d8ff4bb3"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "610989a970c6d925d8ff4bb2"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 30,
+  "horaFin": 18,
+  "minutoFin": 30,
+  "dia": 2,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:23:37.783Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:23:37.783Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098a605086c528181c1d83"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098a605086c528181c1d82"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 0,
+  "horaFin": 18,
+  "minutoFin": 0,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:26:40.553Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:26:40.553Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098b0d1d43c207ac645cd8"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098b0d1d43c207ac645cd7"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 0,
+  "horaFin": 18,
+  "minutoFin": 0,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:29:33.993Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:29:33.993Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098bf38bc68b0f20d07605"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098bf28bc68b0f20d07604"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 0,
+  "horaFin": 18,
+  "minutoFin": 0,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:33:23.034Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:33:23.034Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098c4a501cdd327ce2fcf6"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098c49501cdd327ce2fcf5"
+  },
+  "horaInicio": 16,
+  "minutoInicio": 30,
+  "horaFin": 18,
+  "minutoFin": 30,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:34:50.055Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:34:50.055Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098ce52bed8009ac1ec6a8"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098ce52bed8009ac1ec6a7"
+  },
+  "horaInicio": 18,
+  "minutoInicio": 30,
+  "horaFin": 19,
+  "minutoFin": 30,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:37:25.880Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:37:25.880Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098d4e31571022d06b90a8"
+  },
+  "estado": "A",
+  "ayudantia": {
+    "$oid": "61098d4d31571022d06b90a7"
+  },
+  "horaInicio": 19,
+  "minutoInicio": 0,
+  "horaFin": 21,
+  "minutoFin": 0,
+  "dia": 3,
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:39:10.029Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:39:10.029Z"
+  },
+  "__v": 0
+}]

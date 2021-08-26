@@ -1,0 +1,484 @@
+[{
+  "_id": {
+    "$oid": "60f8eeefa7723d23386a9f3b"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8eaa5a26a2b3c948c3f8b"
+  },
+  "tema": "Variables",
+  "descripcion": "Se explicará teoría y prática de variables",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:07:11.552Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:18:15.465Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-16T08:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-16T10:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "60f8ef1c0143142664df17e0"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8eabd05e2b21868ac95f1"
+  },
+  "tema": "Tipos de datos",
+  "descripcion": "Se explicará teoría y prática de datos en python",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:07:56.745Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:18:44.021Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-07-27T08:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-07-27T10:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "60f8ef8c4435260268c4bc37"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8ebffb4b561577037fe97"
+  },
+  "tema": "Limite Superior",
+  "descripcion": "Se explicará teoría y prática de limites",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:09:48.684Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:19:03.753Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-16T11:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-16T13:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "60f8efa273f21f2e2c07b7ed"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8ec1452383c1e08dd9f1d"
+  },
+  "tema": "Integrales",
+  "descripcion": "Se explicará teoría y prática de integrales",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:10:10.705Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:19:22.363Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-07-27T11:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-07-27T13:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "610789a64797a88e473869f7"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8eaa5a26a2b3c948c3f8b"
+  },
+  "tema": "Condicionales",
+  "descripcion": "Se explicará teoría y prática de condicionales",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:07:11.552Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:18:15.465Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-16T08:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-16T10:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "610789dd4797a88e473869f8"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "60f8eabd05e2b21868ac95f1"
+  },
+  "tema": "Bucle For",
+  "descripcion": "Se explicará teoría y prática de Bucle For",
+  "enlace": "https://www.youtube.com/piogram",
+  "ubicacion": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:07:56.745Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:18:44.021Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-03T08:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-03T10:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61097cd64c58a1478021c471"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61097cd64c58a1478021c470"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica",
+  "enlace": "https://zoom.us/j/92326153692?pwd=ODJOWFZDaEozd2dmTUh0ZkRlQlJEdz09#success",
+  "ubicacion": {
+    "$oid": "61097c1d95805bb74c967bae"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T17:28:54.293Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T17:28:54.293Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-02T09:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-02T11:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098792259a5d0688cc83a0"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098792259a5d0688cc839e"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:14:42.838Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:14:42.838Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-02T13:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-02T14:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098792259a5d0688cc83a1"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098792259a5d0688cc839f"
+  },
+  "tema": "Condicionales",
+  "descripcion": "Practica condicionales EDITADO",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:14:42.989Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:14:42.989Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-21T16:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-21T17:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "610989057d7d8222a8f3482e"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "610989057d7d8222a8f3482d"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:20:53.482Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:20:53.482Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-16T14:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-16T16:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "610989a970c6d925d8ff4bb4"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "610989a970c6d925d8ff4bb3"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:23:37.961Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:23:37.961Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-03T16:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-03T18:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098a605086c528181c1d84"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098a605086c528181c1d83"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:26:40.747Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:26:40.747Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T16:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T18:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098b0e1d43c207ac645cd9"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098b0d1d43c207ac645cd8"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fteam%2F19%3A7UQjL30t7_oD4fxsCZOdBJdoAYjPDmIVFTt2ddor84E1%40thread.tacv2%2Fconversations%3FgroupId%3D278635e9-664c-4d9c-8b5b-64247a6d1c05%26tenantId%3Db7af8caf-83d8-4644-85ae-317c545223c1&type=team&deeplinkId=24341529-8f89-4a7e-b4c8-afa916940009&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:29:34.165Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:29:34.165Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T16:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T18:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098bf38bc68b0f20d07606"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098bf38bc68b0f20d07605"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:33:23.185Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:33:23.185Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T16:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T18:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098c4a501cdd327ce2fcf7"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098c4a501cdd327ce2fcf6"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:34:50.246Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:34:50.246Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T16:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T18:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098ce62bed8009ac1ec6a9"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098ce52bed8009ac1ec6a8"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:37:26.016Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:37:26.016Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T18:30:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T19:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "61098d4e31571022d06b90a9"
+  },
+  "estado": "A",
+  "sesion": {
+    "$oid": "61098d4e31571022d06b90a8"
+  },
+  "tema": "Variables y tipos de datos",
+  "descripcion": "Practica Variables",
+  "enlace": "",
+  "ubicacion": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:39:10.148Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:39:10.148Z"
+  },
+  "__v": 0,
+  "fechaClaseInicio": {
+    "$date": "2021-08-04T19:00:00Z"
+  },
+  "fechaClaseFin": {
+    "$date": "2021-08-04T21:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "611ef38dddeddda37f03480b"
+  },
+  "estado": "I",
+  "enlace": "wwwhththt",
+  "descripcion": "clases de ....asdasdasdas",
+  "fechaClase": {
+    "$date": "2021-08-29T07:00:00Z"
+  },
+  "tema": "Typescript",
+  "sesion": {
+    "$oid": "61097cd64c58a1478021c470"
+  },
+  "ubicacion": {
+    "$oid": "61097c1d95805bb74c967bae"
+  },
+  "fechaCreacion": {
+    "$date": "2021-08-20T00:13:01.919Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-20T00:13:29.857Z"
+  },
+  "__v": 0
+}]

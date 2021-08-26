@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "60f4bbe737eea54b04cf92ea"
+  },
+  "estado": "A",
+  "nombre": "Estudiante",
+  "codigo": "EST",
+  "fechaCreacion": {
+    "$date": "2021-07-18T23:40:23.767Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-18T23:40:23.767Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8d78ef58ab5e915cd6434"
+  },
+  "nombre": "Ayudante",
+  "codigo": "AYU",
+  "fechaCreacion": "2021-07-18T23:40:23.767+00:00",
+  "fechaActualizacion": "2021-07-18T23:40:23.767+00:00",
+  "__v": 0
+}]

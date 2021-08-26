@@ -1,0 +1,19 @@
+FROM node:16-alpine AS builder
+
+WORKDIR /app
+
+COPY ./package*.json ./
+RUN npm install
+
+ARG REACT_APP_BACKEND_PORT
+ARG REACT_APP_BACKEND_HOSTNAME
+ARG REACT_APP_BACKEND_PROTOCOL
+
+COPY ./tsconfig.json ./tsconfig.json
+COPY ./src ./src
+COPY ./public ./public
+RUN npm run build
+
+
+FROM nginx:1.18.0-alpine AS server
+COPY --from=builder ./app/build /usr/share/nginx/html

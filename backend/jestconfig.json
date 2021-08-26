@@ -1,0 +1,16 @@
+{
+    "transform": {
+        "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "moduleFileExtensions": ["ts", "js"],
+    "reporters": [
+        "default",
+        [
+            "jest-html-reporters",
+            {
+                "publicPath": "reports/html",
+                "expand": true
+            }
+        ]
+    ]
+}

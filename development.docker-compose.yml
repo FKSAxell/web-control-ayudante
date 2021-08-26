@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+    frontend:
+        build:
+            dockerfile: development.dockerfile
+        environment:
+            - REACT_APP_BACKEND_PORT=${BACKEND_PORT}
+            - REACT_APP_BACKEND_HOSTNAME=${BACKEND_HOSTNAME}
+            - REACT_APP_BACKEND_PROTOCOL=${BACKEND_PROTOCOL}
+        volumes:
+            - ./frontend/src:/app/src
+
+    backend:
+        build:
+            dockerfile: development.dockerfile
+        volumes:
+            - ./backend/src:/app/src
+        environment:
+            - MONGO_PORT=27017
+
+    database:
+        image: mongo:3.6.15
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+        volumes:
+            - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+            - mongo:/data/db
+        ports:
+            - ${MONGO_PORT}:27017
+        networks:
+            - thesis
+
+networks:
+    thesis:
+        driver: bridge
+
+volumes:
+    mongo:

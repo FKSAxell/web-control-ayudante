@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "60f8ee8d90bac24ad4417a07"
+  },
+  "estado": "A",
+  "nombre": "Youtube",
+  "codigo": "YT",
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61097c1d95805bb74c967bae"
+  },
+  "estado": "A",
+  "nombre": "Zoom",
+  "codigo": "ZO",
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109868784b71bbbeae10028"
+  },
+  "estado": "A",
+  "nombre": "Microsoft Teams",
+  "codigo": "MT",
+  "fechaCreacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-22T04:05:33.542Z"
+  },
+  "__v": 0
+}]

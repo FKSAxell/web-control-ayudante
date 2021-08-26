@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+    frontend:
+        build:
+            dockerfile: development.dockerfile
+        environment:
+            - REACT_APP_BACKEND_PORT=${BACKEND_PORT}
+            - REACT_APP_BACKEND_HOSTNAME=${BACKEND_HOSTNAME}
+            - REACT_APP_BACKEND_PROTOCOL=${BACKEND_PROTOCOL}
+        volumes:
+            - ./frontend/src:/app/src
+
+    backend:
+        build:
+            dockerfile: development.dockerfile
+        volumes:
+            - ./backend/src:/app/src
+
+networks:
+    thesis:
+        driver: bridge
+
+volumes:
+    mongo:

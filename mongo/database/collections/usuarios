@@ -1,0 +1,350 @@
+[{
+  "_id": {
+    "$oid": "60f7196780fc1f002e243f1a"
+  },
+  "rol": [
+    {
+      "$oid": "60f4bbe737eea54b04cf92ea"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Test Axell",
+  "email": "test@test.com",
+  "password": "$2a$10$udXRS0RE.gb9TNhkUZhpyeAMIUT9yausiynwADX5.t5ij1Q9.tdTi",
+  "fechaCreacion": {
+    "$date": "2021-07-20T18:43:52.080Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-18T17:13:17.975Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f719b6ff2d09ecb741cd74"
+  },
+  "rol": [
+    {
+      "$oid": "60f4bbe737eea54b04cf92ea"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Axell Concha",
+  "email": "kaconcha@espol.edu.ec",
+  "password": "$2a$10$8bHtuuW9wLaV.W.Hd/NWUOdVpJbwBL7wDipALJrppPZSDmSL30Jii",
+  "fechaCreacion": {
+    "$date": "2021-07-19T01:45:54.804Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-18T19:31:22.961Z"
+  },
+  "__v": 0,
+  "carrera": {
+    "$oid": "60f656a9ac09282b987de3ee"
+  }
+},{
+  "_id": {
+    "$oid": "60f8c95680fc1f002e243f1b"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "David Montalván",
+  "email": "ayudante1@test.com",
+  "password": "$2a$10$MLpukyw25SPNV4HjkvbBB.2xNniL2XxGjt5GZbu0DvIov/2CM3rOi",
+  "fechaCreacion": {
+    "$date": "2021-07-22T01:26:46.822Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-17T02:14:51.235Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "60f8e6c380fc1f002e243f1c"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Melanie Cedeño",
+  "email": "ayudante2@test.com",
+  "password": "$2a$10$XDLNse3uZnWX9kqLylEXK.TFwxdGMePA7INaJOAHd6rWuJ6KhbpX6",
+  "fechaCreacion": {
+    "$date": "2021-07-22T03:32:19.409Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-17T03:15:24.996Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "60ff5782af74cf002e00cc87"
+  },
+  "rol": [
+    {
+      "$oid": "60f4bbe737eea54b04cf92ea"
+    },
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Miguel Licea",
+  "email": "ayudante3@test.com",
+  "password": "$2a$10$Kxza8GWtKmDIByAMxQ3mn.7s8Pw3zSoT0eVTdQH7F1yBU1EAwjRdy",
+  "fechaCreacion": {
+    "$date": "2021-07-27T00:46:58.997Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-07-27T00:46:58.997Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61097cd54c58a1478021c46e"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Josue Alexander Cobos Salvador",
+  "email": "jacobos@espol.edu.ec",
+  "password": "$2a$10$IuxwPTxdxfLZ5dpb087DpeVRwTAB14V8/sAHjqR33W8yIfg7dc7Sm",
+  "fechaCreacion": {
+    "$date": "2021-08-03T17:28:53.671Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T17:28:53.671Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098792259a5d0688cc839c"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Joel Alejandro Alvarado Jimenez",
+  "email": "joealalv@espol.edu.ec",
+  "password": "$2a$10$v0zRCoOm2sKt9sPG1IfQbuypCM7CN85n/XDdf51Q7atp9dPOp5BzG",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:14:42.294Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:14:42.294Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610989047d7d8222a8f3482b"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Kevin Dennis Carvajal Coloma",
+  "email": "kedecarv@espol.edu.ec",
+  "password": "$2a$10$ce9eUAuv3QBELyaOctsC5usOiJVHcjXT0/3uBB5QoQf7carca7uAa",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:20:52.957Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:20:52.957Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610989a970c6d925d8ff4bb1"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Danaé Jacqueline Townsend Hinostroza",
+  "email": "danjtown@espol.edu.ec",
+  "password": "$2a$10$XOM7dsPS9KxOfo.4wKnf5e20bg1lPJIxVUsdUpKktGsxez.rl.ccK",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:23:37.465Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:23:37.465Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098a605086c528181c1d81"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Jaime Eduardo Pizarro Barona",
+  "email": "japibaro@espol.edu.ec",
+  "password": "$2a$10$A6XjGHDndEuWLnwr6Drd9.RSOu2R/915VqADEK3Y3PvBxl.wc1yhe",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:26:40.213Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:26:40.213Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098b0d1d43c207ac645cd6"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Johan Jair Gilces Reyes",
+  "email": "jjgilces@espol.edu.ec",
+  "password": "$2a$10$c6vtP5hQKdLpVaiBAlPMueidSPLwJ7o2uUG1hePm6tly32BU/M75K",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:29:33.613Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:29:33.613Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098bf28bc68b0f20d07603"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Angelo de Francisco Sánchez Condo",
+  "email": "angdesan@espol.edu.ec",
+  "password": "$2a$10$6gAlJS3qBXsSbIW.er5A9uzsnXmiXn./virT946iZKGPz0M0L3scO",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:33:22.761Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:33:22.761Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098c49501cdd327ce2fcf4"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Víctor Hugo Tapia Granizo",
+  "email": "vhtapia@espol.edu.ec",
+  "password": "$2a$10$eEUhkEkDF5SXDGbSkYl9le46T7yKEZhhWNY..jr8jAI0icSek01DO",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:34:49.686Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:34:49.686Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098ce52bed8009ac1ec6a6"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Melany Lissette Fuentes Giler",
+  "email": "melfgile@espol.edu.ec",
+  "password": "$2a$10$Sjx9OZGlsVwYr7GRBJOKEOY3wjyXQyKKTqodSiINgkC3mW34IHPNK",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:37:25.584Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:37:25.584Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61098d4d31571022d06b90a6"
+  },
+  "rol": [
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "William Steeven Medina Masa",
+  "email": "wsmedina@espol.edu.ec",
+  "password": "$2a$10$Zycp/lyD9aQMaUwR/4O7w.n0T6Vi17AC/gMYdhjrhZP2tx7knnffO",
+  "fechaCreacion": {
+    "$date": "2021-08-03T18:39:09.790Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-03T18:39:09.790Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ef178c5e9c99e5193f381"
+  },
+  "rol": [
+    {
+      "$oid": "60f4bbe737eea54b04cf92ea"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Carlos",
+  "email": "carlos@test.com",
+  "password": "$2a$10$TUyEA4eU/JvN.k5ZPNL1w.s/cxXE5sbr9ndffaOCGlGyQtuB7xNcK",
+  "fechaCreacion": {
+    "$date": "2021-08-20T00:04:08.699Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-20T00:04:08.699Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ef24ab42654a111ebd9cf"
+  },
+  "rol": [
+    {
+      "$oid": "60f4bbe737eea54b04cf92ea"
+    },
+    {
+      "$oid": "60f8d78ef58ab5e915cd6434"
+    }
+  ],
+  "estado": "A",
+  "nombre": "Danny",
+  "email": "clozano@mail.com",
+  "password": "$2a$10$mvQPY8zapd3N48pb8MXD1O70cLPsc2axe51nSQ6xICklRmX6Bjewi",
+  "fechaCreacion": {
+    "$date": "2021-08-20T00:07:38.550Z"
+  },
+  "fechaActualizacion": {
+    "$date": "2021-08-20T00:49:26.799Z"
+  },
+  "__v": 0
+}]
