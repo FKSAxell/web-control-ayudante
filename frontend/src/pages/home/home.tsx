@@ -130,7 +130,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                     </div>
                     {/*<hr/>*/}
                     {this.state.canLogin && <div className="w3-container">
-                        <h3>Dashboard</h3>
+                        <h3>Sitema de Ayudantias</h3>
                     </div>}
                     <div className="w3-bar-block">
                         {this.state.canLogin && <button
