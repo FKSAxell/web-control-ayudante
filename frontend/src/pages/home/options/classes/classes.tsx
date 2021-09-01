@@ -6,6 +6,7 @@ import Backend, { ClassesResponse } from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBook,
+    faClock,
     faLink,
     faLocationArrow,
     faPencilAlt,
@@ -14,6 +15,7 @@ import {
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import CreateClassModal from './create-class-modal'
 import UpdateClassModal from './update-class-modal'
+import SeeAttendancesClassModal from './see-attendances-modal'
 import Utils from '../../../../libraries/utils'
 import Role, { Action, RoleValidation } from '../../../../libraries/role-manager/role'
 
@@ -28,6 +30,7 @@ interface ClassesState {
     classes: ClassesResponse[]
     showCreateModal: boolean
     classResponseToUpdate?: ClassesResponse
+    classToSeeAttendances?: ClassesResponse
     page: number
     pageSize: number
     roles: RoleValidation[]
@@ -41,6 +44,7 @@ export default class Classes extends React.Component<
         classes: [],
         showCreateModal: false,
         classResponseToUpdate: undefined,
+        classToSeeAttendances: undefined,
         page: 1,
         pageSize: 5,
         roles: Role.fromUser(this.props.auth.user),
@@ -104,9 +108,22 @@ export default class Classes extends React.Component<
                         onClassCreated={this.fetchData}
                     />
                 )}
+                {this.state.classToSeeAttendances !== undefined && (
+                    <SeeAttendancesClassModal
+                        class={this.state.classToSeeAttendances}
+                        setLoading={this.props.setLoading}
+                        app={this.props.app}
+                        auth={this.props.auth}
+                        onCloseButtonClicked={() =>
+                            this.setState({ classToSeeAttendances: undefined })
+                        }
+                        onClassCreated={this.fetchData}
+                    />
+                )}
                 <br />
                 <div>
                     <span className="w3-xlarge">Clases </span>
+                    {' '}
                     {this.state.roles
                         .map((role: RoleValidation) =>
                             role.canCreate(Action.Classes)
@@ -129,6 +146,22 @@ export default class Classes extends React.Component<
                             (classResponse: ClassesResponse, index: number) => (
                                 <li key={'user' + index} className="w3-bar">
                                     <span className="w3-bar-item w3-white w3-xlarge w3-right">
+                                        {this.state.roles
+                                            .map((role: RoleValidation) =>
+                                                role.canRead(Action.Attendances)
+                                            )
+                                            .filter((can: boolean) => can).length > 0 && (<button
+                                            onClick={() =>
+                                                this.setState({
+                                                    classToSeeAttendances:
+                                                        classResponse
+                                                })
+                                            }
+                                            className="w3-button w3-green"
+                                        >
+                                            <FontAwesomeIcon icon={faClock} />
+                                        </button>)}
+
                                         {this.state.roles
                                             .map((role: RoleValidation) =>
                                                 role.canUpdate(Action.Classes)

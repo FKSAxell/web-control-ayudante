@@ -16,7 +16,7 @@ import {
     faCalendar,
     faChartArea,
     faChartPie,
-    faClock,
+    // faClock,
     faLocationArrow,
     faLock,
     faPlus,
@@ -28,7 +28,7 @@ import Locations from './options/locations/locations'
 import Roles from './options/roles/roles'
 import Faculties from './options/faculties/faculties'
 import Subjects from './options/subjects/subjects'
-import Attendances from './options/attendances/attendances'
+// import Attendances from './options/attendances/attendances'
 import Assistantships from './options/assistantships/assistantships'
 import Careers from './options/careers/careers'
 import Registers from './options/registers/registers'
@@ -61,7 +61,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         }
 
         const roles: RoleValidation[] = Role.fromUser(this.props.auth.user)
-        const canLogin: boolean = this.props.auth.user === undefined ? false : this.props.auth.user?.rol.filter((rol: RolResponse) => ['PRF', 'AYU'].includes(rol.codigo)).length > 0
+        const canLogin: boolean = this.props.auth.user === undefined ? false : this.props.auth.user?.rol.filter((rol: RolResponse) => ['ADM','PRF', 'AYU'].includes(rol.codigo)).length > 0
 
         this.state = {
             canLogin,
@@ -122,7 +122,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                             <img src="/w3images/avatar2.png" className="w3-circle w3-margin-right" style={{ width: '46px' }}/>
                         </div>*/}
                         <div className="w3-col s8 w3-bar">
-                            {/*<span>Bienvenido, <strong> Danny </strong></span>*/}
+                            {/*<span>Bienvenido, <strong> Carlos </strong></span>*/}
                             {/*<a href="#" className="w3-bar-item w3-button"></a>
                             <a href="#" className="w3-bar-item w3-button"><i className="fa fa-user"></i></a>
                     <a href="#" className="w3-bar-item w3-button"><i className="fa fa-cog"></i></a>*/}
@@ -130,7 +130,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                     </div>
                     {/*<hr/>*/}
                     {this.state.canLogin && <div className="w3-container">
-                        <h3>Sitema de Ayudantias</h3>
+                        <h3>Dashboard</h3>
                     </div>}
                     <div className="w3-bar-block">
                         {this.state.canLogin && <button
@@ -139,7 +139,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                         >
                             <FontAwesomeIcon icon={faChartPie} /> Métricas
                         </button>}
-                        {this.state.roles
+                        {/*this.state.roles
                             .map((role: RoleValidation) =>
                                 role.canRead(Action.Attendances)
                             )
@@ -152,7 +152,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                             >
                                 <FontAwesomeIcon icon={faClock} /> Asistencias
                             </button>
-                        )}
+                        )*/}
 
                         {this.state.roles
                             .map((role: RoleValidation) =>
@@ -358,14 +358,14 @@ class Home extends React.Component<HomeProps, HomeState> {
                             history={this.props.history}
                         />
                     )}
-                    {this.state.optionSelect === 'attendances' && (
+                    {/*this.state.optionSelect === 'attendances' && (
                         <Attendances
                             setLoading={this.props.setLoading}
                             app={this.props.app}
                             auth={this.props.auth}
                             history={this.props.history}
                         />
-                    )}
+                    )*/}
                     {this.state.optionSelect === 'assistantships' && (
                         <Assistantships
                             setLoading={this.props.setLoading}

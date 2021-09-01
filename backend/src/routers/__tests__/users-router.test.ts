@@ -36,7 +36,7 @@ describe('users-router', () => {
             }
         })
         test.concurrent('login must work', async () => {
-            const email: string = 'clozano@mail.com'
+            const email: string = 'cclozano@mail.com'
             const password: string = '270793'
             const axiosRequestConfig: AxiosRequestConfig = {
                 method: 'post',

@@ -2,6 +2,7 @@ import { RolResponse, UsersResponse } from '../backend'
 import Assistant from './assistant'
 import Teacher from './teacher'
 import Other from './other'
+import Admin from './admin'
 
 export enum Action {
     Attendances = 'Attendances',
@@ -32,6 +33,8 @@ export default abstract class Role {
 
         return user.rol.map((role: RolResponse) => {
             switch (role.codigo) {
+            case 'ADM':
+                return new Admin()
             case 'PRF':
                 return new Teacher()
             case 'AYU':

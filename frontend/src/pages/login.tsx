@@ -109,7 +109,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                                     className="w3-button w3-block w3-green w3-section w3-padding"
                                     type="submit"
                                 >
-                                    Iniciar Sesion
+                                    Login
                                 </button>
                             </div>
                         </form>

@@ -337,8 +337,8 @@
     }
   ],
   "estado": "A",
-  "nombre": "Danny",
-  "email": "clozano@mail.com",
+  "nombre": "Carlos",
+  "email": "cclozano@mail.com",
   "password": "$2a$10$mvQPY8zapd3N48pb8MXD1O70cLPsc2axe51nSQ6xICklRmX6Bjewi",
   "fechaCreacion": {
     "$date": "2021-08-20T00:07:38.550Z"

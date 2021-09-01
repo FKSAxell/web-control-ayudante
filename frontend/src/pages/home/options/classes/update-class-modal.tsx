@@ -98,6 +98,36 @@ export default class UpdateClassModal extends React.Component<
         }
     }
 
+    dayPositionToString(position: number) {
+        switch(position) {
+        case 1: return 'Lunes'
+        case 2: return 'Martes'
+        case 3: return 'Miércoles'
+        case 4: return 'Jueves'
+        case 5: return 'Viernes'
+        case 6: return 'Sábado'
+        case 7: return 'Domingo'
+        }
+    }
+
+    onInitDateChanged = (date: Date) => {
+        const session: SessionResponse = this.state.sessions.filter((session: SessionResponse) => session._id === this.state.session)[0]
+        if(date.getDay() === session.dia) {
+            this.setState({ fechaClaseInicio: date })
+        } else {
+            alert(`Debe escoger una fecha que sea en el día ${this.dayPositionToString(session.dia)}`)
+        }
+    }
+
+    onEndDateChanged = (date: Date) => {
+        const session: SessionResponse = this.state.sessions.filter((session: SessionResponse) => session._id === this.state.session)[0]
+        if(date.getDay() === session.dia) {
+            this.setState({ fechaClaseFin: date })
+        } else {
+            alert(`Debe escoger una fecha que sea en el día ${this.dayPositionToString(session.dia)}`)
+        }
+    }
+
     render(): React.ReactElement {
         return (
             <div className="w3-modal" style={{ display: 'block' }}>
@@ -225,6 +255,8 @@ export default class UpdateClassModal extends React.Component<
                                             key={index}
                                             value={session._id}
                                         >
+                                            {this.dayPositionToString(session.dia)}
+                                            {' '}de{' '}
                                             {Utils.twoDigits(
                                                 session.horaInicio
                                             )}
@@ -245,9 +277,7 @@ export default class UpdateClassModal extends React.Component<
                             </label>
                             <br />
                             <DatePicker
-                                onChange={(date: Date) =>
-                                    this.setState({ fechaClaseInicio: date })
-                                }
+                                onChange={(date: Date) => this.onInitDateChanged(date)}
                                 value={this.state.fechaClaseInicio}
                             />
                             <br />
@@ -257,9 +287,7 @@ export default class UpdateClassModal extends React.Component<
                             </label>
                             <br />
                             <DatePicker
-                                onChange={(date: Date) =>
-                                    this.setState({ fechaClaseFin: date })
-                                }
+                                onChange={(date: Date) => this.onEndDateChanged(date)}
                                 value={this.state.fechaClaseFin}
                             />
                             <br />

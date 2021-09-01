@@ -1,6 +1,6 @@
 import { Action, RoleValidation } from './role'
 
-export default class Teacher implements RoleValidation {
+export default class Admin implements RoleValidation {
     canCreate(action: Action): boolean {
         return [
             Action.Careers,
@@ -17,14 +17,14 @@ export default class Teacher implements RoleValidation {
             Action.Asistantships,
             Action.Careers,
             Action.Classes,
-            //Action.Faculties,
+            Action.Faculties,
             Action.Favorites,
-            //Action.Subjects,
-            //Action.Registers,
-            //Action.Roles,
+            Action.Subjects,
+            Action.Registers,
+            Action.Roles,
             Action.Sessions,
-            //Action.Locations,
-            //Action.Users,
+            Action.Locations,
+            Action.Users,
         ].includes(action)
     }
     canReadAll(action: Action): boolean {

@@ -5,25 +5,25 @@ export default class Assistant implements RoleValidation {
         return [
             Action.Asistantships,
             Action.Classes,
-            Action.Favorites,
-            Action.Registers,
+            //Action.Favorites,
+            //Action.Registers,
             Action.Sessions,
-            Action.Locations,
+            //Action.Locations,
         ].includes(action)
     }
     canRead(action: Action): boolean {
         return [
-            Action.Attendances,
+            //Action.Attendances,
             Action.Asistantships,
-            Action.Careers,
+            //Action.Careers,
             Action.Classes,
-            Action.Faculties,
-            Action.Favorites,
-            Action.Subjects,
-            Action.Registers,
-            Action.Roles,
+            //Action.Faculties,
+            //Action.Favorites,
+            //Action.Subjects,
+            //Action.Registers,
+            //Action.Roles,
             Action.Sessions,
-            Action.Locations,
+            //Action.Locations,
         ].includes(action)
     }
     // eslint-disable-next-line
@@ -34,20 +34,20 @@ export default class Assistant implements RoleValidation {
         return [
             Action.Asistantships,
             Action.Classes,
-            Action.Favorites,
-            Action.Registers,
-            Action.Sessions,
-            Action.Locations,
+            //Action.Favorites,
+            //Action.Registers,
+            //Action.Sessions,
+            //Action.Locations,
         ].includes(action)
     }
     canDelete(action: Action): boolean {
         return [
             Action.Asistantships,
             Action.Classes,
-            Action.Favorites,
-            Action.Registers,
-            Action.Sessions,
-            Action.Locations,
+            //Action.Favorites,
+            //Action.Registers,
+            //Action.Sessions,
+            //Action.Locations,
         ].includes(action)
     }
 }

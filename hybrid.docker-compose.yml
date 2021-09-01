@@ -18,7 +18,7 @@ services:
             - ./backend/src:/app/src
 
 networks:
-    thesis:
+    traefik-public:
         driver: bridge
 
 volumes:
