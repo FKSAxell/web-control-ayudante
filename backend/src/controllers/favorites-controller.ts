@@ -2,14 +2,26 @@ import Mongoose from 'mongoose'
 import FavoriteRepository, {
     FavoriteInterface,
 } from '../database/models/favorite'
+import AttendanceRepository, {
+    AttendanceInterface,
+} from '../database/models/attendance'
+import ClassRepository, {
+    ClassesInterface,
+} from '../database/models/classes'
 import CreateFavoriteRequest from '../requests/create-favorite-request'
 import UpdateFavoriteRequest from '../requests/update-favorite-request'
 
 export default class FacultiesController {
-    async list(): Promise<FavoriteInterface[]> {
-        return await FavoriteRepository.find({ estado: 'A' })
+    async list(classId: string|null): Promise<FavoriteInterface[]> {
+        const favorites: FavoriteInterface[] = await FavoriteRepository.find({ estado: 'A' })
             .populate({
                 path: 'sesion',
+                populate: {
+                    path: 'ayudantia',
+                    populate: {
+                        path: 'materia',
+                    }
+                }
                 /*match: {
                     estado: 'A',
                 },*/
@@ -20,6 +32,27 @@ export default class FacultiesController {
                     estado: 'A',
                 },*/
             })
+        if(classId === null) {
+            return favorites
+        }
+
+        const favoritesWithAssistance: any[] = []
+        for(const favorite of favorites) {
+            const attendanceInterface: AttendanceInterface[] = await AttendanceRepository.find({
+                estado: 'A',
+                clase: new Mongoose.mongo.ObjectId(classId),
+                usuario: favorite.usuario._id
+            })
+            const favoriteWithAssistance: any = {
+                usuario: favorite.usuario,
+                sesion: favorite.sesion,
+                estado: favorite.estado,
+                attendances: attendanceInterface === null ? [] : (attendanceInterface.length === 0 ? [] : attendanceInterface)
+            }
+            favoritesWithAssistance.push(favoriteWithAssistance)
+        }
+
+        return favoritesWithAssistance
     }
 
     async create(request: CreateFavoriteRequest): Promise<void> {

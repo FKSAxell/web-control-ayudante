@@ -13,7 +13,7 @@ router.get(
     [JwtMiddleware.validate],
     AsyncTools.runAsyncWrapper(
         async (request: Request, response: Response): Promise<void> => {
-            response.json(await controller.list())
+            response.json(await controller.list(<string> request.query.classId))
         }
     )
 )

@@ -30,10 +30,10 @@ services:
         ports:
             - ${MONGO_PORT}:27017
         networks:
-            - traefik-public
+            - traefik
 
 networks:
-    traefik-public:
+    traefik:
         driver: bridge
 
 volumes:

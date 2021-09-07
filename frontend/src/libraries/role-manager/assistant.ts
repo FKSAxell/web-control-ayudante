@@ -3,6 +3,7 @@ import { Action, RoleValidation } from './role'
 export default class Assistant implements RoleValidation {
     canCreate(action: Action): boolean {
         return [
+            //Action.Attendances,
             Action.Asistantships,
             Action.Classes,
             //Action.Favorites,
@@ -13,7 +14,7 @@ export default class Assistant implements RoleValidation {
     }
     canRead(action: Action): boolean {
         return [
-            //Action.Attendances,
+            Action.Attendances,
             Action.Asistantships,
             //Action.Careers,
             Action.Classes,

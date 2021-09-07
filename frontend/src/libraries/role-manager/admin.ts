@@ -3,6 +3,7 @@ import { Action, RoleValidation } from './role'
 export default class Admin implements RoleValidation {
     canCreate(action: Action): boolean {
         return [
+            Action.Attendances,
             Action.Careers,
             Action.Faculties,
             Action.Subjects,

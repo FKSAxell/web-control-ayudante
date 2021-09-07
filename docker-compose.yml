@@ -13,7 +13,7 @@ services:
         depends_on:
             - backend
         networks:
-            - traefik-public
+            - traefik
         labels:
             traefik.enable: 'true'
             #Route HTTPS
@@ -42,8 +42,8 @@ services:
             - MONGO_PASSWORD=${MONGO_PASSWORD}
             - MONGO_ARGUMENTS=${MONGO_ARGUMENTS}
         networks:
-            - traefik-public
+            - traefik
 
 networks:
-    traefik-public:
+    traefik:
         driver: bridge

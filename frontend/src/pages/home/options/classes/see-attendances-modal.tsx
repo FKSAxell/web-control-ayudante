@@ -1,7 +1,8 @@
 import React from 'react'
 import Backend, {
     AttendanceResponse,
-    ClassesResponse
+    ClassesResponse,
+    FavoriteResponse
 } from '../../../../libraries/backend'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
@@ -9,7 +10,7 @@ import CreateAttendanceModal from '../attendances/create-attendances-modal'
 import UpdateAttendanceModal from '../attendances/update-attendances-modal'
 import Role, { Action, RoleValidation } from '../../../../libraries/role-manager/role'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faCheck, faPencilAlt, faPlus, faTrash, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faCheck, faChessKing, faPencilAlt, faPlus, faTrash, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export interface SeeAttendancesModalProps {
     auth: AuthState
@@ -21,9 +22,9 @@ export interface SeeAttendancesModalProps {
 }
 
 export interface SeeAttendancesModalState {
-    attendances: AttendanceResponse[]
+    favorites: FavoriteResponse[]
     showCreateModal: boolean
-    attendancesResponseToUpdate?: AttendanceResponse
+    favoriteResponseToUpdate?: FavoriteResponse
     page: number
     pageSize: number
     roles: RoleValidation[]
@@ -32,11 +33,11 @@ export interface SeeAttendancesModalState {
 export default class SeeAttendancesClassModal extends React.Component<
     SeeAttendancesModalProps,
     SeeAttendancesModalState
-> {
+    > {
     state: SeeAttendancesModalState = {
-        attendances: [],
+        favorites: [],
         showCreateModal: false,
-        attendancesResponseToUpdate: undefined,
+        favoriteResponseToUpdate: undefined,
         page: 1,
         pageSize: 5,
         roles: Role.fromUser(this.props.auth.user),
@@ -46,12 +47,12 @@ export default class SeeAttendancesClassModal extends React.Component<
         try {
             this.setState({
                 showCreateModal: false,
-                attendancesResponseToUpdate: undefined,
+                favoriteResponseToUpdate: undefined,
             })
             this.props.setLoading({ isLoading: true })
             this.setState({
-                attendances: await Backend.getAttendances(
-                    this.props.auth.token || ''
+                favorites: await Backend.getFavorite(
+                    this.props.auth.token || '', this.props.class._id
                 ),
             })
             this.props.setLoading({ isLoading: false })
@@ -61,13 +62,50 @@ export default class SeeAttendancesClassModal extends React.Component<
         }
     }
 
-    deleteAttendace = async (id: string) => {
+    addAttendance = async (
+        classId: string,
+        userId: string
+    ) => {
+        this.props.setLoading({ isLoading: true })
+        await Backend.createAttendance(
+            this.props.auth.token || '',
+            {
+                calificacion: 5,
+                clase: classId,
+                usuario: userId
+            }
+        )
+        await this.fetchData()
+    }
+
+    deleteAttendance = async (
+        attendanceId: string
+    ) => {
         const action: boolean = window.confirm(
-            'Realmente desea eleminar la asistencia'
+            'Realmente desea borrar la asistencia?'
+        )
+        if (action === true) {
+            try {
+                this.props.setLoading({ isLoading: true })
+                await Backend.deleteAttendances(
+                    this.props.auth.token || '', attendanceId
+                )
+                await this.fetchData()
+            } catch(error) {
+                console.error(error)
+                alert('Error borrando asistencia')
+                this.props.setLoading({ isLoading: false })
+            }
+        }
+    }
+
+    deleteFavorite = async (id: string) => {
+        const action: boolean = window.confirm(
+            'Realmente desea eleminar el favorito'
         )
         if (action === true) {
             this.props.setLoading({ isLoading: true })
-            await Backend.deleteAttendances(this.props.auth.token || '', id)
+            await Backend.deleteFavorite(this.props.auth.token || '', id)
             await this.fetchData()
         }
     }
@@ -105,19 +143,22 @@ export default class SeeAttendancesClassModal extends React.Component<
                                 onClassCreated={this.fetchData}
                             />
                         )}
-                        {this.state.attendancesResponseToUpdate !== undefined && (
-                            <UpdateAttendanceModal
-                                attendance={this.state.attendancesResponseToUpdate}
+                        {this.state.favoriteResponseToUpdate !== undefined && (
+                            /*<UpdateAttendanceModal
+                                favorite={this.state.favoriteResponseToUpdate}
                                 setLoading={this.props.setLoading}
                                 app={this.props.app}
                                 auth={this.props.auth}
                                 onCloseButtonClicked={() =>
                                     this.setState({
-                                        attendancesResponseToUpdate: undefined,
+                                        favoriteResponseToUpdate: undefined,
                                     })
                                 }
                                 onClassCreated={this.fetchData}
-                            />
+                            />*/
+                            <div>
+                                create
+                            </div>
                         )}
                         <br />
                         <div>
@@ -138,20 +179,14 @@ export default class SeeAttendancesClassModal extends React.Component<
                         </div>
                         <br />
                         <ul className="w3-ul w3-card-4">
-                            {this.state.attendances
-                                .filter((attendance: AttendanceResponse) => this.props.class._id === attendance.clase._id)
-                                .filter(
-                                    (attendance: AttendanceResponse) => this.state.roles
-                                        .map((role: RoleValidation) => role.canReadAll(Action.Attendances)).filter((can: boolean) => can).length > 0 ||
-                                        this.props.auth.user?._id ===
-                                        attendance.usuario._id
-                                )
+                            {this.state.favorites
+
                                 .slice(
                                     (this.state.page - 1) * this.state.pageSize,
                                     this.state.page * this.state.pageSize
                                 )
                                 .map(
-                                    (attendance: AttendanceResponse, index: number) => (
+                                    (favorite: FavoriteResponse, index: number) => (
                                         <li key={'subjects' + index} className="w3-bar">
                                             <span className="w3-bar-item w3-white w3-xlarge w3-right">
                                                 {this.state.roles
@@ -165,8 +200,8 @@ export default class SeeAttendancesClassModal extends React.Component<
                                                     <button
                                                         onClick={() =>
                                                             this.setState({
-                                                                attendancesResponseToUpdate:
-                                                                    attendance,
+                                                                favoriteResponseToUpdate:
+                                                                favorite,
                                                             })
                                                         }
                                                         className="w3-button w3-blue"
@@ -187,8 +222,8 @@ export default class SeeAttendancesClassModal extends React.Component<
                                                     .length > 0 && (
                                                     <button
                                                         onClick={() =>
-                                                            this.deleteAttendace(
-                                                                attendance._id
+                                                            this.deleteFavorite(
+                                                                favorite._id
                                                             )
                                                         }
                                                         className="w3-button w3-red"
@@ -198,22 +233,50 @@ export default class SeeAttendancesClassModal extends React.Component<
                                                         />
                                                     </button>
                                                 )}
+
+                                                {favorite.attendances.length === 0 && <button
+                                                    onClick={() =>
+                                                        this.addAttendance(
+                                                            this.props.class._id,
+                                                            favorite.usuario._id
+                                                        )
+                                                    }
+                                                    className="w3-button w3-blue"
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={faCheck}
+                                                    />
+                                                </button>}
+
+                                                {favorite.attendances.length > 0 && <button
+                                                    onClick={() =>
+                                                        this.deleteAttendance(
+                                                            favorite.attendances[0]._id
+                                                        )
+                                                    }
+                                                    className="w3-button w3-red"
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={faTrash}
+                                                    />
+                                                </button>}
                                             </span>
-                                            <div className="">
+                                            <div>
+                                                <br />
                                                 <span className="w3-large">
                                                     <FontAwesomeIcon icon={faBook} />{' '}
-                                                    {attendance.clase.tema}
+                                                    {favorite.sesion.ayudantia.materia.nombre}
                                                 </span>
                                                 <br />
                                                 <span className="w3-large">
                                                     <FontAwesomeIcon icon={faUser} />{' '}
-                                                    {attendance.usuario.email}
+                                                    {favorite.usuario.email}
                                                 </span>
                                                 <br />
-                                                <span className="w3-large">
+                                                {favorite.attendances.length > 0 && <span className="w3-large">
                                                     <FontAwesomeIcon icon={faCheck} />{' '}
-                                                    {attendance.calificacion}
-                                                </span>
+                                                    {favorite.attendances[0].calificacion}
+                                                </span>}
                                             </div>
                                         </li>
                                     )
@@ -225,12 +288,13 @@ export default class SeeAttendancesClassModal extends React.Component<
                                 {Array.from(
                                     {
                                         length: Math.ceil(
-                                            this.state.attendances.filter(
-                                                (attendance: AttendanceResponse) => this.state.roles
-                                                    .map((role: RoleValidation) => role.canReadAll(Action.Attendances)).filter((can: boolean) => can).length > 0 ||
+                                            this.state.favorites.filter(
+                                                (favorite: FavoriteResponse) => this.state.roles
+                                                    .map((role: RoleValidation) => role.canReadAll(Action.Attendances)).filter((can: boolean) => can).length > 0/* ||
                                                     this.props.auth.user?._id ===
-                                                    attendance.usuario._id
-                                            ).length / this.state.pageSize
+                                                    attendance.usuario._id*/
+                                            ).filter((favorite: FavoriteResponse) => favorite.attendances === undefined || favorite.attendances === null || favorite.attendances.length === 0 ? false : this.props.class._id === favorite.attendances[0].clase._id)
+                                                .length / this.state.pageSize
                                         ),
                                     },
                                     (_, index: number) => index + 1

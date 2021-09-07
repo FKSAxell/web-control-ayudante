@@ -244,6 +244,7 @@ export interface FavoriteResponse {
     _id: string
     usuario: UsersResponse
     sesion: SessionResponse
+    attendances: AttendanceResponse[]
     estado: string
 }
 
@@ -908,13 +909,16 @@ export default class Backend {
     }
 
     // FAVORITE
-    static async getFavorite(token: string): Promise<FavoriteResponse[]> {
+    static async getFavorite(token: string, classId: string|null = null): Promise<FavoriteResponse[]> {
         const axiosRequestConfig: AxiosRequestConfig = {
             method: 'get',
             url: `${this.url}/favorites`,
             headers: {
                 'x-token': token,
             },
+            params: {
+                classId: classId
+            }
         }
         const axiosResponse: AxiosResponse<FavoriteResponse[]> = await Axios(
             axiosRequestConfig

@@ -16,7 +16,7 @@ import {
     faCalendar,
     faChartArea,
     faChartPie,
-    // faClock,
+    faClock,
     faLocationArrow,
     faLock,
     faPlus,
@@ -139,7 +139,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                         >
                             <FontAwesomeIcon icon={faChartPie} /> Métricas
                         </button>}
-                        {/*this.state.roles
+                        {this.state.roles
                             .map((role: RoleValidation) =>
                                 role.canRead(Action.Attendances)
                             )
@@ -152,7 +152,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                             >
                                 <FontAwesomeIcon icon={faClock} /> Asistencias
                             </button>
-                        )*/}
+                        )}
 
                         {this.state.roles
                             .map((role: RoleValidation) =>
