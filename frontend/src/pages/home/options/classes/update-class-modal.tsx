@@ -8,6 +8,7 @@ import Backend, {
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import Utils from '../../../../libraries/utils'
+import Role, {Action, RoleValidation} from '../../../../libraries/role-manager/role'
 
 export interface UpdateClassModalProps {
     auth: AuthState
@@ -29,6 +30,7 @@ export interface UpdateClassModalState {
     session: string
     locations: LocationResponse[]
     sessions: SessionResponse[]
+    roles: RoleValidation[]
 }
 
 export default class UpdateClassModal extends React.Component<
@@ -48,6 +50,7 @@ export default class UpdateClassModal extends React.Component<
             session: this.props.class.sesion._id,
             locations: [],
             sessions: [],
+            roles: Role.fromUser(this.props.auth.user),
         }
     }
 
@@ -74,6 +77,11 @@ export default class UpdateClassModal extends React.Component<
     onCreateButtonClicked = async (event: React.FormEvent) => {
         event.preventDefault()
 
+        const session: SessionResponse = this.state.sessions.filter((session: SessionResponse) => session._id === this.state.session)[0]
+        const finicioEdit = this.state.fechaClaseInicio
+        const ffinEdit = this.state.fechaClaseInicio
+        finicioEdit.setHours(session.horaInicio,session.minutoInicio)
+        ffinEdit.setHours(session.horaFin,session.minutoFin)
         try {
             this.props.setLoading({ isLoading: true })
 
@@ -242,38 +250,45 @@ export default class UpdateClassModal extends React.Component<
                                 className="w3-input w3-border w3-margin-bottom"
                                 required
                             >
-                                {this.state.sessions.map(
-                                    (
-                                        session: SessionResponse,
-                                        index: number
-                                    ) => (
-                                        <option
-                                            selected={
-                                                session._id ===
-                                                this.props.class.sesion._id
-                                            }
-                                            key={index}
-                                            value={session._id}
-                                        >
-                                            {this.dayPositionToString(session.dia)}
-                                            {' '}de{' '}
-                                            {Utils.twoDigits(
-                                                session.horaInicio
-                                            )}
-                                            :
-                                            {Utils.twoDigits(
-                                                session.minutoInicio
-                                            )}{' '}
-                                            - {Utils.twoDigits(session.horaFin)}
-                                            :
-                                            {Utils.twoDigits(session.minutoFin)}
-                                            {' '}-{' '}
-                                            {session.ayudantia.materia.nombre}{' '}
-                                            {' '}-{' '}
-                                            {session.ayudantia.usuario.nombre}{' '}
-                                        </option>
+                                {this.state.sessions
+                                    .filter(
+                                        (sesion: SessionResponse) => this.state.roles
+                                            .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                                                this.props.auth.user?._id ===
+                                                sesion.ayudantia.usuario._id
                                     )
-                                )}
+                                    .map(
+                                        (
+                                            session: SessionResponse,
+                                            index: number
+                                        ) => (
+                                            <option
+                                                selected={
+                                                    session._id ===
+                                                    this.props.class.sesion._id
+                                                }
+                                                key={index}
+                                                value={session._id}
+                                            >
+                                                {this.dayPositionToString(session.dia)}
+                                                {' '}de{' '}
+                                                {Utils.twoDigits(
+                                                    session.horaInicio
+                                                )}
+                                                :
+                                                {Utils.twoDigits(
+                                                    session.minutoInicio
+                                                )}{' '}
+                                                - {Utils.twoDigits(session.horaFin)}
+                                                :
+                                                {Utils.twoDigits(session.minutoFin)}
+                                                {' '}-{' '}
+                                                {session.ayudantia.materia.nombre}{' '}
+                                                {' '}-{' '}
+                                                {session.ayudantia.usuario.nombre}{' '}
+                                            </option>
+                                        )
+                                    )}
                             </select>
 
                             <label>

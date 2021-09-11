@@ -5,7 +5,7 @@ import { History } from 'history'
 import Backend, {
     AssistantshipResponse,
     ClassesResponse,
-    LocationResponse,
+    LocationResponse, SessionResponse,
     SubjectResponse, UsersResponse
 } from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -75,8 +75,22 @@ export default class Classes extends React.Component<
             })
             this.setState({
                 //materias: this.state.classes.map(value => value.sesion.ayudantia.materia),
-                materias: this.state.classes.map(value => value.sesion.ayudantia.materia).filter((value, index) => value._id).map(value => value),
-                ayudantes: this.state.classes.map(value => value.sesion.ayudantia.usuario)
+                materias: this.state.classes
+                    .filter(
+                        (clase: ClassesResponse) => this.state.roles
+                            .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                            this.props.auth.user?._id ===
+                            clase.sesion.ayudantia.usuario._id
+                    )
+                    .map(value => value.sesion.ayudantia.materia),
+                ayudantes: this.state.classes
+                    .filter(
+                        (clase: ClassesResponse) => this.state.roles
+                            .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                            this.props.auth.user?._id ===
+                            clase.sesion.ayudantia.usuario._id
+                    )
+                    .map(value => value.sesion.ayudantia.usuario)
             })
 
             console.log(this.state.materias)
@@ -163,6 +177,7 @@ export default class Classes extends React.Component<
                     onChange={(event) =>
                         this.setState({
                             materiaSeleccionada: event.target.value,
+
                         })
                     }
                     className="w3-input w3-border w3-margin-bottom"

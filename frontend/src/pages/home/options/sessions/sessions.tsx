@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import { History } from 'history'
-import Backend, { SessionResponse } from '../../../../libraries/backend'
+import Backend, {AssistantshipResponse, SessionResponse} from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCalendar,
@@ -122,6 +122,12 @@ export default class Sessions extends React.Component<
                 <br />
                 <ul className="w3-ul w3-card-4">
                     {this.state.sessions
+                        .filter(
+                            (sesion: SessionResponse) => this.state.roles
+                                .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                                this.props.auth.user?._id ===
+                                sesion.ayudantia.usuario._id
+                        )
                         .slice(
                             (this.state.page - 1) * this.state.pageSize,
                             this.state.page * this.state.pageSize

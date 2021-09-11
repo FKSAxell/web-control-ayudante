@@ -1,12 +1,14 @@
 import React from 'react'
 import DatePicker from 'react-date-picker'
 import Backend, {
+    AssistantshipResponse,
     LocationResponse,
     SessionResponse,
 } from '../../../../libraries/backend'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import Utils from '../../../../libraries/utils'
+import Role, {Action, RoleValidation} from '../../../../libraries/role-manager/role'
 
 export interface CreateClassModalProps {
     auth: AuthState
@@ -26,6 +28,7 @@ export interface CreateClassModalState {
     session: string
     locations: LocationResponse[]
     sessions: SessionResponse[]
+    roles: RoleValidation[]
 }
 
 export default class CreateClassModal extends React.Component<
@@ -42,6 +45,7 @@ export default class CreateClassModal extends React.Component<
         session: '',
         locations: [],
         sessions: [],
+        roles: Role.fromUser(this.props.auth.user),
     }
 
     componentDidMount() {
@@ -236,31 +240,38 @@ export default class CreateClassModal extends React.Component<
                                 className="w3-input w3-border w3-margin-bottom"
                                 required
                             >
-                                {this.state.sessions.map(
-                                    (
-                                        session: SessionResponse,
-                                        index: number
-                                    ) => (
-                                        <option key={index} value={session._id}>
-                                            {this.dayPositionToString(session.dia)}
-                                            {' '}de{' '}
-                                            {Utils.twoDigits(
-                                                session.horaInicio
-                                            )}
-                                            :
-                                            {Utils.twoDigits(
-                                                session.minutoInicio
-                                            )} a{' '}
-                                            {Utils.twoDigits(session.horaFin)}
-                                            :
-                                            {Utils.twoDigits(session.minutoFin)}{' '}
-                                            {' '}-{' '}
-                                            {session.ayudantia.materia.nombre}{' '}
-                                            {' '}-{' '}
-                                            {session.ayudantia.usuario.nombre}{' '}
-                                        </option>
+                                {this.state.sessions
+                                    .filter(
+                                        (sesion: SessionResponse) => this.state.roles
+                                            .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                                                this.props.auth.user?._id ===
+                                                sesion.ayudantia.usuario._id
                                     )
-                                )}
+                                    .map(
+                                        (
+                                            session: SessionResponse,
+                                            index: number
+                                        ) => (
+                                            <option key={index} value={session._id}>
+                                                {this.dayPositionToString(session.dia)}
+                                                {' '}de{' '}
+                                                {Utils.twoDigits(
+                                                    session.horaInicio
+                                                )}
+                                                :
+                                                {Utils.twoDigits(
+                                                    session.minutoInicio
+                                                )} a{' '}
+                                                {Utils.twoDigits(session.horaFin)}
+                                                :
+                                                {Utils.twoDigits(session.minutoFin)}{' '}
+                                                {' '}-{' '}
+                                                {session.ayudantia.materia.nombre}{' '}
+                                                {' '}-{' '}
+                                                {session.ayudantia.usuario.nombre}{' '}
+                                            </option>
+                                        )
+                                    )}
                             </select>
 
                             <label>

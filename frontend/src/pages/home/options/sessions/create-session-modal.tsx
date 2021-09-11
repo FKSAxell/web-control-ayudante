@@ -1,7 +1,8 @@
 import React from 'react'
-import Backend, { AssistantshipResponse } from '../../../../libraries/backend'
+import Backend, {AssistantshipResponse, SessionResponse} from '../../../../libraries/backend'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
+import Role, {Action, RoleValidation} from '../../../../libraries/role-manager/role'
 
 export interface CreateSessionModalProps {
     auth: AuthState
@@ -19,6 +20,7 @@ export interface CreateSessionModalState {
     minutoFin: number
     minutoInicio: number
     assistantships: AssistantshipResponse[]
+    roles: RoleValidation[]
 }
 
 export default class CreateSessionModal extends React.Component<
@@ -33,6 +35,7 @@ export default class CreateSessionModal extends React.Component<
         minutoFin: 0,
         minutoInicio: 0,
         assistantships: [],
+        roles: Role.fromUser(this.props.auth.user),
     }
 
     componentDidMount() {
@@ -111,35 +114,42 @@ export default class CreateSessionModal extends React.Component<
                                 className="w3-input w3-border w3-margin-bottom"
                                 required
                             >
-                                {this.state.assistantships.map(
-                                    (
-                                        assistantship: AssistantshipResponse,
-                                        index: number
-                                    ) => (
-                                        <option
-                                            key={index}
-                                            value={assistantship._id}
-                                        >
-                                            {
-                                                assistantship.fechaFin
-                                                    .toString()
-                                                    .split('.')[0]
-                                                    .split('T')[0]
-                                            }{' '}
-                                            -{' '}
-                                            {
-                                                assistantship.fechaInicio
-                                                    .toString()
-                                                    .split('.')[0]
-                                                    .split('T')[0]
-                                            }
-                                            -{' '}
-                                            {assistantship.materia.nombre}
-                                            -{' '}
-                                            {assistantship.usuario.nombre}
-                                        </option>
+                                {this.state.assistantships
+                                    .filter(
+                                        (assistanship: AssistantshipResponse) => this.state.roles
+                                            .map((role: RoleValidation) => role.canReadAll(Action.Asistantships)).filter((can: boolean) => can).length > 0 ||
+                                            this.props.auth.user?._id ===
+                                            assistanship.usuario._id
                                     )
-                                )}
+                                    .map(
+                                        (
+                                            assistantship: AssistantshipResponse,
+                                            index: number
+                                        ) => (
+                                            <option
+                                                key={index}
+                                                value={assistantship._id}
+                                            >
+                                                {
+                                                    assistantship.fechaFin
+                                                        .toString()
+                                                        .split('.')[0]
+                                                        .split('T')[0]
+                                                }{' '}
+                                                -{' '}
+                                                {
+                                                    assistantship.fechaInicio
+                                                        .toString()
+                                                        .split('.')[0]
+                                                        .split('T')[0]
+                                                }
+                                                -{' '}
+                                                {assistantship.materia.nombre}
+                                                -{' '}
+                                                {assistantship.usuario.nombre}
+                                            </option>
+                                        )
+                                    )}
                             </select>
                             <br />
 
