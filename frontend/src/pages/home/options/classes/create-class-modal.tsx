@@ -264,14 +264,14 @@ export default class CreateClassModal extends React.Component<
                             />
                             <br />
 
-                            <label>
+                            {/*<label>
                                 <b>Fecha final de la clase</b>
                             </label>
                             <br />
                             <DatePicker
                                 onChange={(date: Date) => this.onEndDateChanged(date)}
                                 value={this.state.fechaClaseFin}
-                            />
+                            />*/}
 
                             <button
                                 className="w3-button w3-block w3-green w3-section w3-padding"

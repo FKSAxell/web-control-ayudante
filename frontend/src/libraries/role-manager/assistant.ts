@@ -14,7 +14,7 @@ export default class Assistant implements RoleValidation {
     }
     canRead(action: Action): boolean {
         return [
-            Action.Attendances,
+            //Action.Attendances,
             Action.Asistantships,
             //Action.Careers,
             Action.Classes,

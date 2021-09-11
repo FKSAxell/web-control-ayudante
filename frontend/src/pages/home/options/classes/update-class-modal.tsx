@@ -282,14 +282,14 @@ export default class UpdateClassModal extends React.Component<
                             />
                             <br />
 
-                            <label>
+                            {/*<label>
                                 <b>Fecha final de la clase</b>
                             </label>
                             <br />
                             <DatePicker
                                 onChange={(date: Date) => this.onEndDateChanged(date)}
                                 value={this.state.fechaClaseFin}
-                            />
+                            />*/}
                             <br />
 
                             <button

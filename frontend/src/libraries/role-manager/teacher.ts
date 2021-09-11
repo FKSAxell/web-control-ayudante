@@ -1,4 +1,4 @@
-import { Action, RoleValidation } from './role'
+import {Action, RoleValidation} from './role'
 
 export default class Teacher implements RoleValidation {
     canCreate(action: Action): boolean {
@@ -15,14 +15,14 @@ export default class Teacher implements RoleValidation {
         return [
             Action.Attendances,
             Action.Asistantships,
-            Action.Careers,
-            Action.Classes,
+            //Action.Careers,
+            //Action.Classes,
             //Action.Faculties,
-            Action.Favorites,
+            //Action.Favorites,
             //Action.Subjects,
             //Action.Registers,
             //Action.Roles,
-            Action.Sessions,
+            //Action.Sessions,
             //Action.Locations,
             //Action.Users,
         ].includes(action)
@@ -30,7 +30,8 @@ export default class Teacher implements RoleValidation {
     canReadAll(action: Action): boolean {
         return [
             Action.Attendances,
-            Action.Asistantships
+            Action.Asistantships,
+            Action.Classes
         ].includes(action)
     }
     canUpdate(action: Action): boolean {

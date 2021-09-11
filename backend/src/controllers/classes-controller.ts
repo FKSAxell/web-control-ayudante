@@ -7,15 +7,15 @@ export default class ClassesController {
         return await ClassesRepository.find({ estado: 'A' })
             .populate({
                 path: 'sesion',
-                /*match: {
-                    estado: 'A',
-                },*/
+                populate: {
+                    path: 'ayudantia',
+                    populate: {
+                        path: 'materia usuario',
+                    }
+                }
             })
             .populate({
                 path: 'ubicacion',
-                /*match: {
-                    estado: 'A',
-                },*/
             })
     }
 

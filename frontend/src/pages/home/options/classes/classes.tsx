@@ -2,10 +2,10 @@ import React from 'react'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import { History } from 'history'
-import Backend, { ClassesResponse } from '../../../../libraries/backend'
+import Backend, {AssistantshipResponse, ClassesResponse} from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faBook,
+    faBook, faBurn, faChessKnight,
     faClock,
     faLink,
     faLocationArrow,
@@ -138,6 +138,12 @@ export default class Classes extends React.Component<
                 <br />
                 <ul className="w3-ul w3-card-4">
                     {this.state.classes
+                        .filter(
+                            (classResponse: ClassesResponse) => this.state.roles
+                                .map((role: RoleValidation) => role.canReadAll(Action.Classes)).filter((can: boolean) => can).length > 0 ||
+                                this.props.auth.user?._id ===
+                                classResponse.sesion.ayudantia.usuario._id
+                        )
                         .slice(
                             (this.state.page - 1) * this.state.pageSize,
                             this.state.page * this.state.pageSize
@@ -199,6 +205,16 @@ export default class Classes extends React.Component<
                                             <FontAwesomeIcon icon={faBook} />{' '}
                                             {classResponse.tema} (
                                             {classResponse.descripcion})
+                                        </span>
+                                        <br />
+                                        <span className="w3-large">
+                                            <FontAwesomeIcon icon={faBurn} />{' '}
+                                            Materia: {classResponse.sesion.ayudantia.materia.nombre}
+                                        </span>
+                                        <br />
+                                        <span className="w3-large">
+                                            <FontAwesomeIcon icon={faChessKnight} />{' '}
+                                            Ayudante: {classResponse.sesion.ayudantia.usuario.nombre}
                                         </span>
                                         <br />
                                         <span>
