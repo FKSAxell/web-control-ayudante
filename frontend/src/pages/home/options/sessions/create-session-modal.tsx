@@ -133,6 +133,10 @@ export default class CreateSessionModal extends React.Component<
                                                     .split('.')[0]
                                                     .split('T')[0]
                                             }
+                                            -{' '}
+                                            {assistantship.materia.nombre}
+                                            -{' '}
+                                            {assistantship.usuario.nombre}
                                         </option>
                                     )
                                 )}

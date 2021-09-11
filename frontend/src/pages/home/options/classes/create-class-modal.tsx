@@ -71,14 +71,19 @@ export default class CreateClassModal extends React.Component<
     onCreateButtonClicked = async (event: React.FormEvent) => {
         event.preventDefault()
 
+        const session: SessionResponse = this.state.sessions.filter((session: SessionResponse) => session._id === this.state.session)[0]
+        const finicioEdit = this.state.fechaClaseInicio
+        const ffinEdit = this.state.fechaClaseInicio
+        finicioEdit.setHours(session.horaInicio,session.minutoInicio)
+        ffinEdit.setHours(session.horaFin,session.minutoFin)
         try {
             this.props.setLoading({ isLoading: true })
 
             await Backend.createClass(this.props.auth.token || '', {
                 enlace: this.state.enlace,
                 descripcion: this.state.descripcion,
-                fechaClaseInicio: this.state.fechaClaseInicio,
-                fechaClaseFin: this.state.fechaClaseFin,
+                fechaClaseInicio: finicioEdit,
+                fechaClaseFin: ffinEdit,
                 tema: this.state.tema,
                 location: this.state.location,
                 session: this.state.session,
@@ -249,6 +254,10 @@ export default class CreateClassModal extends React.Component<
                                             {Utils.twoDigits(session.horaFin)}
                                             :
                                             {Utils.twoDigits(session.minutoFin)}{' '}
+                                            {' '}-{' '}
+                                            {session.ayudantia.materia.nombre}{' '}
+                                            {' '}-{' '}
+                                            {session.ayudantia.usuario.nombre}{' '}
                                         </option>
                                     )
                                 )}

@@ -31,7 +31,8 @@ export default class Admin implements RoleValidation {
     canReadAll(action: Action): boolean {
         return [
             Action.Attendances,
-            Action.Asistantships
+            Action.Asistantships,
+            Action.Classes
         ].includes(action)
     }
     canUpdate(action: Action): boolean {

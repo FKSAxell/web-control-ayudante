@@ -187,6 +187,12 @@ export default class Sessions extends React.Component<
                                         <FontAwesomeIcon icon={faCalendar} />{' '}
                                         {session.dia}
                                     </span>
+                                    <span>
+                                        {' '}-{' '}
+                                        {session.ayudantia.materia.nombre}{' '}
+                                        {' '}-{' '}
+                                        {session.ayudantia.usuario.nombre}{' '}
+                                    </span>
                                 </div>
                             </li>
                         ))}

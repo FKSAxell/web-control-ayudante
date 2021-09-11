@@ -267,6 +267,10 @@ export default class UpdateClassModal extends React.Component<
                                             - {Utils.twoDigits(session.horaFin)}
                                             :
                                             {Utils.twoDigits(session.minutoFin)}
+                                            {' '}-{' '}
+                                            {session.ayudantia.materia.nombre}{' '}
+                                            {' '}-{' '}
+                                            {session.ayudantia.usuario.nombre}{' '}
                                         </option>
                                     )
                                 )}

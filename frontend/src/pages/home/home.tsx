@@ -308,7 +308,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                 {/*className="w3-main"*/}
                 <div style={{ marginLeft: '300px', marginTop: '43px' }}>
                     {!this.state.canLogin && <h1>
-                        No puedes acceder al portal web, debes usar la aplicación móvil
+                        Puedes Usar la aplicacion movil para estudiantes en el siguiente enlace: http://ayudantias.com/app
                     </h1>}
                     {this.state.optionSelect === 'classes' && (
                         <Classes

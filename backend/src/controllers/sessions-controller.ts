@@ -7,6 +7,9 @@ export default class SessionController {
     async list(): Promise<SessionInterface[]> {
         return await SessionRepository.find({ estado: 'A' }).populate({
             path: 'ayudantia',
+            populate: {
+                path: 'materia usuario',
+            }
             /*match: {
                 estado: 'A',
             },*/

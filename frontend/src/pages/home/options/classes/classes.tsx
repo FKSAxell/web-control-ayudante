@@ -2,7 +2,12 @@ import React from 'react'
 import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import { History } from 'history'
-import Backend, {AssistantshipResponse, ClassesResponse} from '../../../../libraries/backend'
+import Backend, {
+    AssistantshipResponse,
+    ClassesResponse,
+    LocationResponse,
+    SubjectResponse, UsersResponse
+} from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBook, faBurn, faChessKnight,
@@ -27,6 +32,10 @@ interface ClassesProps {
 }
 
 interface ClassesState {
+    materias: SubjectResponse[]
+    materiaSeleccionada: string
+    ayudantes: UsersResponse[]
+    ayudanteSeleccionado: string
     classes: ClassesResponse[]
     showCreateModal: boolean
     classResponseToUpdate?: ClassesResponse
@@ -41,6 +50,10 @@ export default class Classes extends React.Component<
     ClassesState
 > {
     state: ClassesState = {
+        materias: [],
+        materiaSeleccionada: '',
+        ayudantes: [],
+        ayudanteSeleccionado: '',
         classes: [],
         showCreateModal: false,
         classResponseToUpdate: undefined,
@@ -58,8 +71,15 @@ export default class Classes extends React.Component<
             })
             this.props.setLoading({ isLoading: true })
             this.setState({
-                classes: await Backend.getClasses(this.props.auth.token || ''),
+                classes: await Backend.getClasses(this.props.auth.token || '')
             })
+            this.setState({
+                //materias: this.state.classes.map(value => value.sesion.ayudantia.materia),
+                materias: this.state.classes.map(value => value.sesion.ayudantia.materia).filter((value, index) => value._id).map(value => value),
+                ayudantes: this.state.classes.map(value => value.sesion.ayudantia.usuario)
+            })
+
+            console.log(this.state.materias)
             this.props.setLoading({ isLoading: false })
         } catch (error) {
             this.props.setLoading({ isLoading: false })
@@ -136,6 +156,58 @@ export default class Classes extends React.Component<
                     </button>)}
                 </div>
                 <br />
+                <label>
+                    <b>Materia</b>
+                </label>
+                <select
+                    onChange={(event) =>
+                        this.setState({
+                            materiaSeleccionada: event.target.value,
+                        })
+                    }
+                    className="w3-input w3-border w3-margin-bottom"
+                    required
+                >
+                    {this.state.materias.map(
+                        (
+                            materia: SubjectResponse,
+                            index: number
+                        ) => (
+                            <option
+                                key={index}
+                                value={materia._id}
+                            >
+                                {materia.nombre}
+                            </option>
+                        )
+                    )}
+                </select>
+                <label>
+                    <b>Ayudante</b>
+                </label>
+                <select
+                    /*onChange={(event) =>
+                        this.setState({
+                            location: event.target.value,
+                        })
+                    }*/
+                    className="w3-input w3-border w3-margin-bottom"
+                    required
+                >
+                    {this.state.ayudantes.map(
+                        (
+                            ayudante: UsersResponse,
+                            index: number
+                        ) => (
+                            <option
+                                key={index}
+                                value={ayudante._id}
+                            >
+                                {ayudante.nombre}
+                            </option>
+                        )
+                    )}
+                </select>
                 <ul className="w3-ul w3-card-4">
                     {this.state.classes
                         .filter(
