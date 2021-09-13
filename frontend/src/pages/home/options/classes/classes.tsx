@@ -3,9 +3,7 @@ import { AuthState } from '../../../../store/auth'
 import { AppState, LoadingPayload } from '../../../../store/app'
 import { History } from 'history'
 import Backend, {
-    AssistantshipResponse,
     ClassesResponse,
-    LocationResponse, SessionResponse,
     SubjectResponse, UsersResponse
 } from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -93,12 +91,39 @@ export default class Classes extends React.Component<
                     .map(value => value.sesion.ayudantia.usuario)
             })
 
-            console.log(this.state.materias)
+            this.setState({
+                classes: this.state.classes.filter(value => this.state.materiaSeleccionada === '' ||
+                    value.sesion.ayudantia.materia.nombre === this.state.materiaSeleccionada)
+            })
+            this.setState({
+                classes: this.state.classes.filter(value => this.state.ayudanteSeleccionado === '' ||
+                    value.sesion.ayudantia.usuario.nombre === this.state.ayudanteSeleccionado)
+            })
+
             this.props.setLoading({ isLoading: false })
         } catch (error) {
             this.props.setLoading({ isLoading: false })
             throw error
         }
+    }
+
+    handleChangeMateria = (selectedOptions: any) => {
+        const name = selectedOptions.target.selectedOptions.item(0).label
+        console.log(name)
+        this.props.setLoading({ isLoading: true })
+        this.setState({
+            materiaSeleccionada: name
+        })
+        this.fetchData()
+    }
+    handleChangeAyudante = (selectedOptions: any) => {
+        const name = selectedOptions.target.selectedOptions.item(0).label
+        console.log(name)
+        this.props.setLoading({ isLoading: true })
+        this.setState({
+            ayudanteSeleccionado: name
+        })
+        this.fetchData()
     }
 
     deleteClass = async (id: string) => {
@@ -174,12 +199,7 @@ export default class Classes extends React.Component<
                     <b>Materia</b>
                 </label>
                 <select
-                    onChange={(event) =>
-                        this.setState({
-                            materiaSeleccionada: event.target.value,
-
-                        })
-                    }
+                    onChange={this.handleChangeMateria}
                     className="w3-input w3-border w3-margin-bottom"
                     required
                 >
@@ -201,11 +221,7 @@ export default class Classes extends React.Component<
                     <b>Ayudante</b>
                 </label>
                 <select
-                    /*onChange={(event) =>
-                        this.setState({
-                            location: event.target.value,
-                        })
-                    }*/
+                    onChange={this.handleChangeAyudante}
                     className="w3-input w3-border w3-margin-bottom"
                     required
                 >
