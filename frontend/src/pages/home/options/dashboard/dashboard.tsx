@@ -47,7 +47,7 @@ export default class Dashboard extends React.Component<
                     const ctx = chart.canvas.getContext('2d')
                     ctx.save()
                     ctx.globalCompositeOperation = 'destination-over'
-                    ctx.fillStyle = '#009688'
+                    ctx.fillStyle = '#243165'
                     ctx.fillRect(0, 0, chart.width, chart.height)
                     ctx.restore()
                 },

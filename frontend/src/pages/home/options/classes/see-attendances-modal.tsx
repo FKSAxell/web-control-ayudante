@@ -55,6 +55,10 @@ export default class SeeAttendancesClassModal extends React.Component<
                     this.props.auth.token || '', this.props.class._id
                 ),
             })
+            this.setState({
+                favorites: this.state.favorites.filter( (ele, ind) => ind ===
+                    this.state.favorites.findIndex( elem => elem.usuario.nombre === ele.usuario.nombre)),
+            })
             this.props.setLoading({ isLoading: false })
         } catch (error) {
             this.props.setLoading({ isLoading: false })
@@ -265,7 +269,7 @@ export default class SeeAttendancesClassModal extends React.Component<
                                                 <br />
                                                 <span className="w3-large">
                                                     <FontAwesomeIcon icon={faBook} />{' '}
-                                                    {favorite.sesion.ayudantia.materia.nombre}
+                                                    {favorite.usuario.nombre}
                                                 </span>
                                                 <br />
                                                 <span className="w3-large">

@@ -8,7 +8,7 @@ import Backend, {
 } from '../../../../libraries/backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faBook, faBurn, faChessKnight,
+    faBook, faBurn, faCheck, faChessKnight,
     faClock,
     faLink,
     faLocationArrow,
@@ -92,6 +92,13 @@ export default class Classes extends React.Component<
             })
 
             this.setState({
+                materias: this.state.materias.filter( (ele, ind) => ind ===
+                    this.state.materias.findIndex( elem => elem.nombre === ele.nombre)),
+                ayudantes: this.state.ayudantes.filter( (ele, ind) => ind ===
+                    this.state.ayudantes.findIndex( elem => elem.nombre === ele.nombre)),
+            })
+
+            this.setState({
                 classes: this.state.classes.filter(value => this.state.materiaSeleccionada === '' ||
                     value.sesion.ayudantia.materia.nombre === this.state.materiaSeleccionada)
             })
@@ -100,6 +107,7 @@ export default class Classes extends React.Component<
                     value.sesion.ayudantia.usuario.nombre === this.state.ayudanteSeleccionado)
             })
 
+            console.log(this.state.classes)
             this.props.setLoading({ isLoading: false })
         } catch (error) {
             this.props.setLoading({ isLoading: false })
@@ -318,6 +326,11 @@ export default class Classes extends React.Component<
                                         <span className="w3-large">
                                             <FontAwesomeIcon icon={faChessKnight} />{' '}
                                             Ayudante: {classResponse.sesion.ayudantia.usuario.nombre}
+                                        </span>
+                                        <br />
+                                        <span className="w3-large">
+                                            <FontAwesomeIcon icon={faCheck} />{' '}
+                                            Calificacion: 5
                                         </span>
                                         <br />
                                         <span>

@@ -96,7 +96,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <Modal background={false} content={<Loader />} />
                 )}
                 <div
-                    className="w3-bar w3-top w3-black w3-large"
+                    className="w3-bar w3-top w3-espol w3-large"
                     style={{ zIndex: 4 }}
                 >
                     {/*
@@ -104,6 +104,11 @@ class Home extends React.Component<HomeProps, HomeState> {
                         <FontAwesomeIcon icon={faBars}/>
                     </button>
                     */}
+                    <span
+                        className="w3-bar-item w3-left"
+                    >
+                        {this.props.auth.user?.nombre}
+                    </span>
                     <span
                         onClick={this.onLogoutButonClicked}
                         className="w3-bar-item w3-right"
